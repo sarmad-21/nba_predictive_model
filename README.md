@@ -20,7 +20,7 @@ For this project I used XGBoost for classification due to its high accuracy and 
 This script handles the web scraping of NBA monthly game schedules and box scores from Basketball-Reference. In this script I have used the liibraries PlayWright and BeatuifulSoup for web scraping. 
 
 #### Key Components:
-- **Playwright**: Playwright opens the Hoops Reference website automating the process of opening the monthly schedule pages from the 2009 - 2010 season to the 2023 - 2024 season. Playwright then gathers all the urls and then navigates to the box score page for each game before proceesing with data scraping.
+- **Playwright**: Playwright opens the Hoops Reference website automating the process of opening the monthly schedule pages from the 2009 - 2010 season to the 2023 - 2024 season. Playwright then gathers all the urls and then navigates to the box score page for each game before proccesing with data scraping.
 - **BeautifulSoup**: BeatifulSoup parses the HTML content to extract the games schedules and the box scores scraping data such as the teams, scores, team statistics, player statistics, etc.
 - **Data Storage**: After the data is scraped the monthly schedule HTML files are stored in the `nba_data/monthly_schedule` directory and the box scores HTML files are stored in the `nba_data/scores` directory.
 
@@ -32,6 +32,10 @@ The script processes the scraped HTML data and transforms it into a Pandas dataf
 - **'read_scoring_summary**: Extracts the scoring summary tables for each game which include the points per quarter for each team and the total points each team scored and stores it in a dataframe. 
 - **'read_box_scores**: Extracts data from the basic box scores table and the advanced box score tables for the given teams and formats it into a dataframe. This data includes basic and advanced team and player statistics.
 
-The basic and advanced stats for reach team are stored in seperate dataframes. Then the last row of both the basic and advanced dataframes which contain the total team stats are concatenated together to form the totals dataframe. Then the script concatenates the maximum values from both the basic and advanced dataframes. Then the totals and maxes dataframes are concatenated into a summary dataframe. The summary data frame and scoring summary data frame are then concatenated creating the game dataframe. Labels are assigned for the home and away teams and a game_opp dataframe is created in which opponent stats are mirrored. The game dataframe is then concatenated with the game_opp dataframe resulting in a single dataframe that contains both the team and opponent stats in one row. Season and date information is added and the resulting dataframe is svaed into the 'nba_game_data.csv'. 
+The basic and advanced stats for reach team are stored in seperate dataframes. Then the last row of both the basic and advanced dataframes which contain the total team stats are concatenated together to form the totals dataframe. Then the script concatenates the maximum values from both the basic and advanced dataframes. Then the totals and maxes dataframes are concatenated into a summary dataframe. The summary data frame and scoring summary data frame are then concatenated creating the game dataframe. Labels are assigned for the home and away teams and a game_opp dataframe is created in which opponent stats are mirrored. The game dataframe is then concatenated with the game_opp dataframe resulting in a single dataframe that contains both the team and opponent stats in one row. Season and date information is added and the resulting dataframe is saved as 'nba_game_data.csv'. 
 
-### 
+### 'cleanup_nba_data.py'
+This script processes the 'nba_game_data.csv' and cleans the data. A game id column for each game is created by combining the game date and team names. A win column is added which assigns lables based on who won and lost the game. Then empty and unneccesary columns are removed and the cleaned data is finally saved as 'nba_game_data_updated.csv'
+
+### XGBoost Classification Model ('xgboost_model.py')
+In this script the XGBoost Classification  model is built to predict the winnner of NBA games. The features used include the basic team stats, advanced team stats, and the player max sats. To view a full list of each exact feature refer to the 'xgboost_model.py'.
