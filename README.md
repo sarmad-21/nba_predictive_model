@@ -46,7 +46,7 @@ In this script the XGBoost Classification  model is built to predict the winner 
 -  **`n_estimators=1000`:**
 -   - The model will build up to 1000 trees. 
 -  **`learning_rate=0.05`:**
-  - The learning rate controls the impact each new tree has on the model. A small learning rate like 0.05 reduces the impact each tree has which lets the model learn more slowly which prevents overfitting leading to a more accurate model. 
+  - - The learning rate controls the impact each new tree has on the model. A small learning rate like 0.05 reduces the impact each tree has which lets the model learn more slowly which prevents overfitting leading to a more accurate model. 
 - **`eval_metric="logloss"`:**
   -  Logistic Loss also known as cross entropy loss is used to measure the error between the predicted probability that the team will win or lose and the actual label.
 - **`early_stopping_rounds=20`:**
