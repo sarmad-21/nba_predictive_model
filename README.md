@@ -1,7 +1,7 @@
 # NBA Predictive XGBoost Model
 
 ## Overview 
-This project involves developing a XGBoost model to predict the outcome of NBA games based on various statistics. The data is scraped from https://www.basketball-reference.com/ for NBA seasons from the 2009 - 2010 season to the 2023 - 2024 season. The data is cleaned and organized in to a Pandas dataframe before being trained with an XGBoost Classifer model. The model achieved a test accuracy of 99.88% making it highly accurate in predicting the winner of NBA games. 
+This project involves developing a XGBoost model to predict the outcome of NBA games based on various statistics. The data is scraped from https://www.basketball-reference.com/ for NBA games from the 2009 - 2010 season to the 2023 - 2024 season. The data is cleaned and organized in to a Pandas dataframe before being trained with an XGBoost Classifer model. The model achieved a test accuracy of 99.88% making it highly accurate in predicting the winner of NBA games. 
 
 ## Technologies Used 
 - **Python**
