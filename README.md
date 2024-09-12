@@ -17,4 +17,21 @@ For this project I used XGBoost for classification due to its high accuracy and 
 ## Project Structure 
 
 ### 'scrape_nba_data.py'
-This script handles the web scraping of NBA monthly game schedules and box scores from Basketball-Reference. 
+This script handles the web scraping of NBA monthly game schedules and box scores from Basketball-Reference. In this script I have used the liibraries PlayWright and BeatuifulSoup for web scraping. 
+
+#### Key Components:
+- **Playwright**: Playwright opens the Hoops Reference website automating the process of opening the monthly schedule pages from the 2009 - 2010 season to the 2023 - 2024 season. Playwright then gathers all the urls and then navigates to the box score page for each game before proceesing with data scraping.
+- **BeautifulSoup**: BeatifulSoup parses the HTML content to extract the games schedules and the box scores scraping data such as the teams, scores, team statistics, player statistics, etc.
+- **Data Storage**: After the data is scraped the monthly schedule HTML files are stored in the `nba_data/monthly_schedule` directory and the box scores HTML files are stored in the `nba_data/scores` directory.
+
+### 'parse_data.py'
+The script processes the scraped HTML data and transforms it into a Pandas dataframe that is used to build our model. 
+
+#### Key Functions: 
+- **'parse_html'**: This function  opens and parses each HTML file with BeautifulSoup. It removes the table rows with classes 'over_header' and 'thead' and returns the cleaned BeautifulSoup object ready for further data extraction.
+- **'read_scoring_summary**: Extracts the scoring summary tables for each game which include the points per quarter for each team and the total points each team scored and stores it in a dataframe. 
+- **'read_box_scores**: Extracts data from the basic box scores table and the advanced box score tables for the given teams and formats it into a dataframe. This data includes basic and advanced team and player statistics.
+
+The basic and advanced stats for reach team are stored in seperate dataframes. Then the last row of both the basic and advanced dataframes which contain the total team stats are concatenated together to form the totals dataframe. Then the script concatenates the maximum values from both the basic and advanced dataframes. Then the totals and maxes dataframes are concatenated into a summary dataframe. The summary data frame and scoring summary data frame are then concatenated creating the game dataframe. Labels are assigned for the home and away teams and a game_opp dataframe is created in which opponent stats are mirrored. The game dataframe is then concatenated with the game_opp dataframe resulting in a single dataframe that contains both the team and opponent stats in one row. Season and date information is added and the resulting dataframe is svaed into the 'nba_game_data.csv'. 
+
+### 
