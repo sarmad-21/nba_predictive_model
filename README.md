@@ -44,7 +44,7 @@ In this script the XGBoost Classification  model is built to predict the winner 
 - **`objective='binary:logistic'`:**
   - Logistic regression is used for binary classification (predicting win or loss)
 -  **`n_estimators=1000`:**
-  - The model will build up to 1000 trees
+  - The model will build up to 1000 trees. 
 -  **`learning_rate=0.05`:**
   - The learning rate controls the impact each new tree has on the model. A small learning rate like 0.05 reduces the impact each tree has which lets the model learn more slowly which prevents overfitting leading to a more accurate model. 
 - **`eval_metric="logloss"`:**
