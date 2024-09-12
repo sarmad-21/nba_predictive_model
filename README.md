@@ -17,7 +17,7 @@ For this project I used XGBoost for classification due to its high accuracy and 
 ## Project Structure 
 
 ### 'scrape_nba_data.py'
-This script handles the web scraping of NBA monthly game schedules and box scores from Basketball-Reference. In this script I have used the liibraries PlayWright and BeatuifulSoup for web scraping. 
+This script handles the web scraping of NBA monthly game schedules and box scores from Basketball-Reference. In this script I have used the libraries PlayWright and BeatuifulSoup for web scraping. 
 
 #### Key Components:
 - **Playwright**: Playwright opens the Hoops Reference website automating the process of opening the monthly schedule pages from the 2009 - 2010 season to the 2023 - 2024 season. Playwright then gathers all the urls and then navigates to the box score page for each game before proccesing with data scraping.
