@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import xgboost as xgb
 from xgboost import XGBClassifier
-
+import matplotlib.pyplot as plt
 
 data = pd.read_csv('nba_game_data_updated.csv')
 data = data.drop(columns=['MP_advanced_totals'])
@@ -57,5 +57,8 @@ print(y_pred)
 print(y_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"The model achieves a test accuracy of {accuracy*100} %")
+xgb.plot_importance(model, max_num_features=50)
+plt.show()
+
 
 
