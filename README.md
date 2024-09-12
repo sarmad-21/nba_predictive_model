@@ -35,7 +35,18 @@ The script processes the scraped HTML data and transforms it into a Pandas dataf
 The basic and advanced stats for reach team are stored in seperate dataframes. Then the last row of both the basic and advanced dataframes which contain the total team stats are concatenated together to form the totals dataframe. Then the script concatenates the maximum values from both the basic and advanced dataframes. Then the totals and maxes dataframes are concatenated into a summary dataframe. The summary data frame and scoring summary data frame are then concatenated creating the game dataframe. Labels are assigned for the home and away teams and a game_opp dataframe is created in which opponent stats are mirrored. The game dataframe is then concatenated with the game_opp dataframe resulting in a single dataframe that contains both the team and opponent stats in one row. Season and date information is added and the resulting dataframe is saved as 'nba_game_data.csv'. 
 
 ### 'cleanup_nba_data.py'
-This script processes the 'nba_game_data.csv' and cleans the data. A game id column for each game is created by combining the game date and team names. A win column is added which assigns lables based on who won and lost the game. Then empty and unneccesary columns are removed and the cleaned data is finally saved as 'nba_game_data_updated.csv'
+This script processes the 'nba_game_data.csv' and cleans the data. A game id column for each game is created by combining the game date and team names. A win column is added which assigns lables based on who won and lost the game. Then empty and unneccesary columns are removed and the cleaned data is finally saved as 'nba_game_data_updated.csv'.
 
 ### XGBoost Classification Model ('xgboost_model.py')
-In this script the XGBoost Classification  model is built to predict the winnner of NBA games. The features used include the basic team stats, advanced team stats, and the player max sats. To view a full list of each exact feature refer to the 'xgboost_model.py'.
+In this script the XGBoost Classification  model is built to predict the winner of NBA games. The features used include the basic team stats, advanced team stats, and the player max sats. To view a full list of each exact feature refer to the 'xgboost_model.py'.
+
+#### Model Parameters 
+- **`objective='binary:logistic'`:**
+  - Logistic regression is used for binary classification (predicting win or loss)
+-  **`n_estimators=1000`:**
+  - The model will build up to 1000 trees
+-  **`learning_rate=0.05`:**
+  - The learning rate controls the impact each new tree has on the model. A small learning rate like 0.05 reduces the impact each tree has which lets the model learn more slowly which prevents overfitting leading to a more accurate model. 
+- **`eval_metric="logloss"`:**
+  -  
+
