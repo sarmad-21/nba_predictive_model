@@ -1,7 +1,12 @@
-# NBA Predictive XGBoost Model
+# Predicting Future NBA Game Winners
 
 ## Overview 
-This project involves developing a XGBoost model to predict the outcome of NBA games based on various statistics. The data is scraped from https://www.basketball-reference.com/ for NBA games from the 2009 - 2010 season to the 2023 - 2024 season. The data is cleaned and organized in to a Pandas dataframe before being trained with an XGBoost Classifer model. The model achieved a test accuracy of 99.88% making it highly accurate in predicting the winner of NBA games. 
+This project predicts the winner of the next matchup between two NBA teams using game data scraped from https://www.basketball-reference.com/ for NBA games from the 2009 - 2010 season to the 2023 - 2024 season (2024-2025 season will be added soon). The pipeline collectes raw HTML, parses team/game statistics, engineers features (elo, rolling averages, rest, head to head stats, etc), and trains machine learning models to output a win probability. 
+
+# Current Results 
+- Logistic Regression (baseline): Validation Accuracy = 55.99% (AUC = 0.575)
+- Logistic Regression (v2 (including engineered features)): Validation Accuracy = 62.84% (AUC = 0.675)
+- LSTM RNN: Validation Accuracy = 52.72%
 
 ## Technologies Used 
 - **Python**
@@ -9,8 +14,9 @@ This project involves developing a XGBoost model to predict the outcome of NBA g
 - **BeautifulSoup**
 - **Pandas**
 - **Scikit-learn**
-- **XGBoost**
 - **Matplotlib**
+- **PyTorch**
+- **XGBoost**
 
 ## XGBoost 
 For this project I used XGBoost for classification due to its high accuracy and performance and ability to handle large datasets. XGBoost is a type of gradient boosting algorithm that builds decision trees sequentially with each tree focusing on the mistakes made by the previous trees. What makes XGBoost an extreme gradient boosting alogrithm is its ability to optimize tradional gradient boosting which makes it faster and more accurate. It uses parallel processing by splitting the task of evaluating the best splits for the features across multiple CPU cores. They work at the same time to find the best splits for their assigned features which reduces the time to build the decision trees making XGBoost faster than traditional gradient boosting. XGBoost also uses L1 and L2 regularization to prevent overfitting. They add pentalty terms to the loss function which prevents the model from assigning too much importance to one feature. L1 regularization adds the absolute values of the weights of the features to the loss function. This encourages the model to set some of the weights of the features to 0 as it wants to minimize the loss function. This simplifies the model and eliminates less important features. L2 regularization adds the squares of the weights of the features to the loss function which encourages the model to evenly distribute the importance of the features and prevents the weights from growing too large. These techniques ensure the model generalizes well to new data and makes XGBoost a powerful model. 
