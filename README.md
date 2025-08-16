@@ -14,6 +14,8 @@ This project predicts the winner of the next matchup between two NBA teams using
 - **Playwright**
 - **BeautifulSoup**
 - **Pandas**
+- **NumPy**
+- **Scipy**
 - **Scikit-learn**
 - **Matplotlib**
 - **PyTorch**
@@ -56,31 +58,16 @@ Preprocessing stage where data is reshaped for modeling. Currently each row repr
 
 ### `feature_engineering.ipynb` 
 Engineered new and stronger predictive features. 
-- `next_matchup_date` column added for each game (row).
-- Create rolling averages of last 5 and last 10 games both teams have played before their next matchup date.
-- Elo for each team is calculated for after the last game they have played and before their next matchup date using the FiveThirtyEight formula including season reversions.
-- Season win percentages are added for each team after each game (the game in row the last head to head match they played) and the season win percentages going into their next matchup.
-- Head to head win percentages are added.
-- Back to back indicators for next matchup added for both teams.
-- Number of days of rest before next matchup added for both teams and rest advantage between each team is calculated.
-- Rows (games) where the next matchup information is not in the dataframe is dropped (where `Team_A_win_next` and `next_matchup_date` are both null).
-- Once all new features are created pearson correlation is calculated between all numerical features and redudant features are carefully dropped to reduce multicollinearity.
-- Distance correlation is calculated between every numerical feature and the label `Team_A_win_next_matchup` to measure the linear and nonlinear relationships between each feature and the label. Along with this, the chi square statistic is calculated between the categorical features and the label  `Team_A_win_next_matchup`. Finally features with low signals are dropped and the final data frame is saved as `nba_engineered_game_df.csv`. 
+- Added `next_matchup_date` for each game.
+- Computed rolling averages for the last 5 and last 10 games both teams have played before their next matchup.
+- Elo rating ratings are calculated for each team after their most recent matchup and before the next matchup date using the FiveThirtyEight formula.
+- Season win percentages are added for each team after the last head to head game and entering the next matchup.
+- Head to head win percentages prior to next matchup are also added.
+- Created back to back indicators for both teams before their next matchup.
+- Number of days of rest before next the matchup for both teams and rest advantage is calculated.
+- Dropped rows where `Team_A_win_next` and `next_matchup_date` are both null.
+- Once all new features are created pearson correlation is calculated between all numerical features. Redundant features are carefully dropped to reduce multicollinearity.
+- Distance correlation is calculated between every numerical feature and the label `Team_A_win_next_matchup` to measure the linear and nonlinear relationships. Along with this, the chi square statistic is calculated between the categorical features and the label  `Team_A_win_next_matchup`.
+- Finally features with low signals are dropped and the final data frame is saved as `nba_engineered_game_df.csv`. 
   
-### Model Training and Evaluation 
-In this script the XGBoost Classification  model is built to predict the winner of NBA games. The features used include the basic team stats, advanced team stats, and the player max sats. To view a full list of each exact feature refer to the 'xgboost_model.py'.
-
-#### Model Parameters 
-- **`objective='binary:logistic'`:**
-  - Logistic regression is used for binary classification (predicting win or loss)
--  **`n_estimators=1000`:**
-   - The model will build up to 1000 trees. 
--  **`learning_rate=0.05`:**
-   - The learning rate controls the impact each new tree has on the model. A small learning rate like 0.05 reduces the impact each tree has which lets the model learn more slowly which prevents overfitting leading to a more accurate model. 
-- **`eval_metric="logloss"`:**
-  -  Logistic Loss also known as cross entropy loss is used to measure the error between the predicted probability that the team will win or lose and the actual label.
-- **`early_stopping_rounds=20`:**
-  - Early stopping rounds is used to prevent overfitting. The model will stop traiing if the log loss does not decrease for 20 consecutive rounds. 
-
-## Performance 
-The model was trained using a 80-20 train and test split. The model achieved a test accuracy of **99.88%** and reduced the log loss from 0.65505 to 0.00325
+### Models
