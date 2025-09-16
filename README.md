@@ -9,8 +9,7 @@ This project predicts the winner of the next matchup between two NBA teams using
 - Deep Neural Network: Validation Accuracy = 62.46% (AUC = 0.6739)
 - LSTM RNN (initial model): Validation Accuracy = 52.72%
 
-## Technologies Used 
-- **Python**
+## Libraries  
 - **Playwright**
 - **BeautifulSoup**
 - **Pandas**
