@@ -4,10 +4,12 @@
 This project predicts the winner of the next matchup between two NBA teams using game data scraped from https://www.basketball-reference.com/ for NBA games from the 2009 - 2010 season to the 2023 - 2024 season (2024-2025 season will be added soon). The pipeline collects raw HTML, parses team/game statistics, engineers features (elo ratings, rolling averages, rest advantage, head to head stats, etc), and trains machine learning models to output a pre game win probability. 
 
 # Current Results 
-- Logistic Regression (baseline): Validation Accuracy = 55.99% (AUC = 0.575)
-- Logistic Regression (v2, including engineered features): Validation Accuracy = 62.84% (AUC = 0.675)
-- Deep Neural Network: Validation Accuracy = 62.46% (AUC = 0.6739)
-- LSTM RNN (initial model): Validation Accuracy = 52.72%
+- LSTM RNN (initial model): Validation Accuracy = 53.8%
+- Logistic Regression (baseline): Validation Accuracy = 55.31% (AUC = 0.575)
+- Logistic Regression (v2, including engineered features): Validation Accuracy = 62.25% (AUC = 0.673)
+- Deep Neural Network: Validation Accuracy = 63.11% (AUC = 0.679)
+- Deep Cross Network V2: Validation Accuracy = 
+
 
 ## Libraries  
 - **Playwright**
