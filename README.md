@@ -8,7 +8,9 @@ This project predicts the winner of the next matchup between two NBA teams using
 - Logistic Regression (baseline): Validation Accuracy = 55.31% (AUC = 0.575)
 - Logistic Regression (v2, including engineered features): Validation Accuracy = 62.25% (AUC = 0.673)
 - Deep Neural Network: Validation Accuracy = 63.11% (AUC = 0.679)
-- Deep Cross Network V2: Validation Accuracy = 
+- Deep Cross Network V2:
+  - Stacked Architecture: Validation Accuracy = 62.89% (AUC = 0.671) 
+  - Parallel Architecture: Validation Accuracy = 62.78% (AUC = 0.672) 
 
 
 ## Libraries  
