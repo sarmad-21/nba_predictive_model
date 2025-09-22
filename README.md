@@ -59,7 +59,7 @@ Preprocessing stage where data is reshaped for modeling. Currently each row repr
 - Finally sequences are created for the LSTM RNN. For each game the last 10 games between those teams are created into sequences and stored in `x_sequence` and `y_sequence` which are then converted to numpy arrays (samples, timesteps, fearures) for LSTM input. We end up with two arrays `x_sequence` and `y_sequence`. 
 - New dataframe (before sequences created) also saved as `nba_game_df.csv`.
 
-### `feature_engineering.ipynb` 
+### 'feature_engineering.ipynb'  
 Engineered new and stronger predictive features. 
 - Added `next_matchup_date` for each game.
 - Computed rolling averages for the last 5 and last 10 games both teams have played before their next matchup.
@@ -74,5 +74,5 @@ Engineered new and stronger predictive features.
 - Finally features with low signals are dropped and the final data frame is saved as `nba_engineered_game_df.csv`. 
   
 ### Models
-- Logstic Regression
-  djdjd
+- Logistic Regression:
+    jdfjfjf 
