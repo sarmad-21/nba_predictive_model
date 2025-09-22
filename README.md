@@ -74,3 +74,5 @@ Engineered new and stronger predictive features.
 - Finally features with low signals are dropped and the final data frame is saved as `nba_engineered_game_df.csv`. 
   
 ### Models
+- Logstic Regression
+  djdjd
