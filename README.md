@@ -86,6 +86,7 @@ Engineered new and stronger predictive features.
   - FNR: 0.324
   - AUC: 0.675
 
+
 ### <u>Neural Network</u>
   Built a neural network consisting of an input layer that takes 158 features followed by 3 hidden layers with 96, 48, and 24 neurons. Each hidden layer is followed by batch normalization, ReLu activation function, and finally dropout set to 0.3 to prevent overfitting. 
 
