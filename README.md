@@ -86,4 +86,13 @@ Engineered new and stronger predictive features.
 
 - **After Feature Engineering:**  
   Reduced binary cross-entropy cost from 0.7166 to 0.6426 and achieved a validation accuracy of **62.63%**.
+  - TPR: 0.6758
+  - FPR: 0.429
+  - TNR: 0.571
+  - FNR: 0.324
+  - AUC: 0.675
+
+### <u>Neural Network</u>
+  Decided to try a
+
 
