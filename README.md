@@ -3,7 +3,7 @@
 ## Overview 
 This project predicts the winner of the next matchup between two NBA teams using game data scraped from https://www.basketball-reference.com/ for NBA games from the 2009 - 2010 season to the 2023 - 2024 season (2024-2025 season will be added soon). The pipeline collects raw HTML, parses team/game statistics, engineers features (elo ratings, rolling averages, rest advantage, head to head stats, etc), and trains machine learning models to output a pre game win probability. 
 
-# Current Results 
+## Current Results 
 - LSTM RNN (initial model): Validation Accuracy = 53.8%
 - Logistic Regression (baseline): Validation Accuracy = 55.31% (AUC = 0.575)
 - Logistic Regression (v2, including engineered features): Validation Accuracy = 62.63% (AUC = 0.675)
@@ -73,7 +73,7 @@ Engineered new and stronger predictive features.
 - Distance correlation is calculated between every numerical feature and the label `Team_A_win_next_matchup` to measure the linear and nonlinear relationships. Along with this, the chi square statistic is calculated between the categorical features and the label  `Team_A_win_next_matchup`.
 - Finally features with low signals are dropped and the final data frame is saved as `nba_engineered_game_df.csv`. 
   
-# Models
+## Models
 Logistic Regression:
 
 Initially trained a logistic regression model (from scratch) with gradient descent prior to implementing engineered features. Reduced validation binary cross entropy cost from 0.6963 to 0.6845 and achieved a validation accuracy of 55.306%.
@@ -85,7 +85,7 @@ AUC: 0.5753204347684914
 
 Trained logistic regression again with gradient descent after adding engineered features. Reduced binary cross entropy cost from 0.7166 to 0.6426 and achieved a validation accuracy of 62.63%. 
 
-## <u>Logistic Regression</u>
+### <u>Logistic Regression</u>
 
 - **Initial Model (before engineered features):**  
   Reduced validation binary cross-entropy cost from `0.6963` to `0.6845` and achieved a validation accuracy of **55.31%**.  
