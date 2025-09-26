@@ -6,7 +6,7 @@ This project predicts the winner of the next matchup between two NBA teams using
 # Current Results 
 - LSTM RNN (initial model): Validation Accuracy = 53.8%
 - Logistic Regression (baseline): Validation Accuracy = 55.31% (AUC = 0.575)
-- Logistic Regression (v2, including engineered features): Validation Accuracy = 62.25% (AUC = 0.673)
+- Logistic Regression (v2, including engineered features): Validation Accuracy = 62.63% (AUC = 0.675)
 - Deep Neural Network: Validation Accuracy = 63.11% (AUC = 0.679)
 - Deep Cross Network V2:
   - Stacked Architecture: Validation Accuracy = 62.89% (AUC = 0.671) 
@@ -75,4 +75,13 @@ Engineered new and stronger predictive features.
   
 ### Models
 - Logistic Regression:
-    jdfjfjf 
+Initially trained a logistic regression model (from scratch) with gradient descent prior to implementing engineered features. Reduced validation binary cross entropy cost from 0.6963 to 0.6845 and achieved a validation accuracy of 55.306%.
+TPR: 0.5812
+FPR: 0.476
+TNR: 0.524
+FNR: 0.419
+AUC: 0.5753204347684914
+
+Trained logistic regression again with gradient descent after adding engineered features. Reduced binary cross entropy cost from 0.7166 to 0.6426 and achieved a validation accuracy of 62.63%. 
+
+
