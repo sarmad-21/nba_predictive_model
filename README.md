@@ -100,6 +100,7 @@ Engineered new and stronger predictive features.
 - FPR: 0.366
 - TNR: 0.634
 - FNR: 0.371
+- AUC: 0.679
 
 ## Future Work
 - Add player-level statistics 
