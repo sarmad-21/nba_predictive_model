@@ -21,9 +21,6 @@ This project predicts the winner of the next matchup between two NBA teams using
 - **Machine Learning & Modeling:** Scikit-learn, XGBoost, PyTorch  
 - **Visualization:** Matplotlib
 
-## XGBoost 
-For this project I used XGBoost for classification due to its high accuracy and performance and ability to handle large datasets. XGBoost is a type of gradient boosting algorithm that builds decision trees sequentially with each tree focusing on the mistakes made by the previous trees. What makes XGBoost an extreme gradient boosting alogrithm is its ability to optimize tradional gradient boosting which makes it faster and more accurate. It uses parallel processing by splitting the task of evaluating the best splits for the features across multiple CPU cores. They work at the same time to find the best splits for their assigned features which reduces the time to build the decision trees making XGBoost faster than traditional gradient boosting. XGBoost also uses L1 and L2 regularization to prevent overfitting. They add pentalty terms to the loss function which prevents the model from assigning too much importance to one feature. L1 regularization adds the absolute values of the weights of the features to the loss function. This encourages the model to set some of the weights of the features to 0 as it wants to minimize the loss function. This simplifies the model and eliminates less important features. L2 regularization adds the squares of the weights of the features to the loss function which encourages the model to evenly distribute the importance of the features and prevents the weights from growing too large. These techniques ensure the model generalizes well to new data and makes XGBoost a powerful model. 
-
 ## Project Structure 
 
 ### 'scrape_nba_data.py'
@@ -101,6 +98,9 @@ Engineered new and stronger predictive features.
 - TNR: 0.634
 - FNR: 0.371
 - AUC: 0.679
+
+### <u>Deep Cross Network V2 (DCNV2)</u>
+
 
 ## Future Work
 - Add player-level statistics 
