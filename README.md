@@ -94,6 +94,12 @@ Engineered new and stronger predictive features.
 
   Training used the **AdamW optimizer** (lr = 0.0001, weight_decay = 0.002) and a **ReduceLROnPlateau** scheduler to lower the learning rate by a factor of 0.1 when validation loss plateaued for 5 epochs. **Early stopping** was also applied with a patience of 5 epochs to prevent overfitting.  
 
+  Reduced validation binary cross-entropy loss from 0.6610 to 0.6420 and achieved a final validation accuracy of **63.11%**.
+
+- TPR: 0.6288
+- FPR: 0.366
+- TNR: 0.634
+- FNR: 0.371
 
 ## Future Work
 - Add player-level statistics 
