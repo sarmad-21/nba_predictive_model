@@ -3,26 +3,23 @@
 ## Overview 
 This project predicts the winner of the next matchup between two NBA teams using game data scraped from https://www.basketball-reference.com/ for NBA games from the 2009 - 2010 season to the 2023 - 2024 season (2024-2025 season will be added soon). The pipeline collects raw HTML, parses team/game statistics, engineers features (elo ratings, rolling averages, rest advantage, head to head stats, etc), and trains machine learning models to output a pre game win probability. 
 
-## Current Results 
-- LSTM RNN (initial model): Validation Accuracy = 53.8%
-- Logistic Regression (baseline): Validation Accuracy = 55.31% (AUC = 0.575)
-- Logistic Regression (v2, including engineered features): Validation Accuracy = 62.63% (AUC = 0.675)
-- Deep Neural Network: Validation Accuracy = 63.11% (AUC = 0.679)
-- Deep Cross Network V2:
-  - Stacked Architecture: Validation Accuracy = 62.89% (AUC = 0.671) 
-  - Parallel Architecture: Validation Accuracy = 62.78% (AUC = 0.672) 
 
+## Current Results  
+
+| Model                               | Validation Accuracy | AUC   |
+|-------------------------------------|----------------------|-------|
+| LSTM RNN (initial)                  | 53.8%               | –     |
+| Logistic Regression (baseline)      | 55.31%              | 0.575 |
+| Logistic Regression (v2 + features) | 62.63%              | 0.675 |
+| Deep Neural Network                 | 63.11%              | 0.679 |
+| Deep Cross Network V2 (stacked)     | 62.89%              | 0.671 |
+| Deep Cross Network V2 (parallel)    | 62.78%              | 0.672 |
 
 ## Libraries  
-- **Playwright**
-- **BeautifulSoup**
-- **Pandas**
-- **NumPy**
-- **Scipy**
-- **Scikit-learn**
-- **Matplotlib**
-- **PyTorch**
-- **XGBoost**
+- **Data Collection & Parsing:** Playwright, BeautifulSoup  
+- **Data Processing & Analysis:** Pandas, NumPy, SciPy  
+- **Machine Learning & Modeling:** Scikit-learn, XGBoost, PyTorch  
+- **Visualization:** Matplotlib
 
 ## XGBoost 
 For this project I used XGBoost for classification due to its high accuracy and performance and ability to handle large datasets. XGBoost is a type of gradient boosting algorithm that builds decision trees sequentially with each tree focusing on the mistakes made by the previous trees. What makes XGBoost an extreme gradient boosting alogrithm is its ability to optimize tradional gradient boosting which makes it faster and more accurate. It uses parallel processing by splitting the task of evaluating the best splits for the features across multiple CPU cores. They work at the same time to find the best splits for their assigned features which reduces the time to build the decision trees making XGBoost faster than traditional gradient boosting. XGBoost also uses L1 and L2 regularization to prevent overfitting. They add pentalty terms to the loss function which prevents the model from assigning too much importance to one feature. L1 regularization adds the absolute values of the weights of the features to the loss function. This encourages the model to set some of the weights of the features to 0 as it wants to minimize the loss function. This simplifies the model and eliminates less important features. L2 regularization adds the squares of the weights of the features to the loss function which encourages the model to evenly distribute the importance of the features and prevents the weights from growing too large. These techniques ensure the model generalizes well to new data and makes XGBoost a powerful model. 
@@ -93,5 +90,13 @@ Engineered new and stronger predictive features.
   - AUC: 0.675
 
 ### <u>Neural Network</u>
-  Built a neural network consisting of an input layer that takes 158 features followed by 3 hidden layers with 96, 48, and 24 neurons each respectively. Each hidden layer is followed by batch normalization, ReLu activation function, and finally dropout set to 0.3 to reduce overfitting. Implemented early stopping Reduced validation binary cross entropy from 0.6610 to 0.6420 achieving a final validation accuracy of 63.11%. 
+  Built a neural network consisting of an input layer that takes 158 features followed by 3 hidden layers with 96, 48, and 24 neurons. Each hidden layer is followed by batch normalization, ReLu activation function, and finally dropout set to 0.3 to prevent overfitting. 
 
+  Training used the **AdamW optimizer** (lr = 0.0001, weight_decay = 0.002) and a **ReduceLROnPlateau** scheduler to lower the learning rate by a factor of 0.1 when validation loss plateaued for 5 epochs. **Early stopping** was also applied with a patience of 5 epochs to prevent overfitting.  
+
+
+## Future Work
+- Add player-level statistics 
+- Deploy model (Streamlit)
+- Add 2024 - 2025 season data
+- Add automated daily scraping for upcoming season
