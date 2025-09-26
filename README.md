@@ -85,4 +85,16 @@ AUC: 0.5753204347684914
 
 Trained logistic regression again with gradient descent after adding engineered features. Reduced binary cross entropy cost from 0.7166 to 0.6426 and achieved a validation accuracy of 62.63%. 
 
+## <u>Logistic Regression</u>
+
+- **Initial Model (before engineered features):**  
+  Reduced validation binary cross-entropy cost from `0.6963` to `0.6845` and achieved a validation accuracy of **55.31%**.  
+  - TPR: 0.5812  
+  - FPR: 0.476  
+  - TNR: 0.524  
+  - FNR: 0.419  
+  - AUC: 0.5753  
+
+- **After Feature Engineering:**  
+  Reduced binary cross-entropy cost from `0.7166` to `0.6426` and achieved a validation accuracy of **62.63%**.
 
