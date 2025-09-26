@@ -74,7 +74,8 @@ Engineered new and stronger predictive features.
 - Finally features with low signals are dropped and the final data frame is saved as `nba_engineered_game_df.csv`. 
   
 ### Models
-- Logistic Regression:
+Logistic Regression:
+
 Initially trained a logistic regression model (from scratch) with gradient descent prior to implementing engineered features. Reduced validation binary cross entropy cost from 0.6963 to 0.6845 and achieved a validation accuracy of 55.306%.
 TPR: 0.5812
 FPR: 0.476
