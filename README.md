@@ -73,7 +73,7 @@ Engineered new and stronger predictive features.
 - Distance correlation is calculated between every numerical feature and the label `Team_A_win_next_matchup` to measure the linear and nonlinear relationships. Along with this, the chi square statistic is calculated between the categorical features and the label  `Team_A_win_next_matchup`.
 - Finally features with low signals are dropped and the final data frame is saved as `nba_engineered_game_df.csv`. 
   
-### Models
+# Models
 Logistic Regression:
 
 Initially trained a logistic regression model (from scratch) with gradient descent prior to implementing engineered features. Reduced validation binary cross entropy cost from 0.6963 to 0.6845 and achieved a validation accuracy of 55.306%.
