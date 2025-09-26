@@ -104,7 +104,7 @@ Engineered new and stronger predictive features.
 
 
 ## Future Work
-- Add player-level statistics 
 - Deploy model (Streamlit)
 - Add 2024 - 2025 season data
 - Add automated daily scraping for upcoming season
+- Add player-level statistics 
