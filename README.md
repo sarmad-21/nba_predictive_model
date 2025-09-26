@@ -85,7 +85,7 @@ Engineered new and stronger predictive features.
   - AUC: 0.5753  
 
 - **After Feature Engineering:**  
-  Reduced binary cross entropy cost from 0.7166 to 0.6426 and achieved a validation accuracy of **62.63%**.
+  Reduced validation binary cross entropy cost from 0.7166 to 0.6426 and achieved a validation accuracy of **62.63%**.
   - TPR: 0.6758
   - FPR: 0.429
   - TNR: 0.571
@@ -93,6 +93,5 @@ Engineered new and stronger predictive features.
   - AUC: 0.675
 
 ### <u>Neural Network</u>
-  Decided to try a 
-
+  Built a neural network consisting of an input layer that takes 158 features followed by 3 hidden layers with 96, 48, and 24 neurons each respectively. Each hidden layer is followed by batch normalization, ReLu activation function, and finally dropout set to 0.3 to reduce overfitting. Implemented early stopping Reduced validation binary cross entropy from 0.6610 to 0.6420 achieving a final validation accuracy of 63.11%. 
 
