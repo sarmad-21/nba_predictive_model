@@ -101,6 +101,9 @@ Engineered new and stronger predictive features.
 - AUC: 0.679
 
 ### <u>Deep Cross Network V2 (DCNV2)</u>
+  
+
+Link to paper: https://arxiv.org/abs/2008.13535
 
 
 ## Future Work
