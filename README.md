@@ -9,8 +9,8 @@ This project predicts the winner of the next matchup between two NBA teams using
 | Model                               | Validation Accuracy | AUC   |
 |-------------------------------------|----------------------|-------|
 | LSTM RNN (initial)                  | 53.8%               | –     |
-| Logistic Regression (baseline)      | 55.31%              | 0.575 |
-| Logistic Regression (v2 + features) | 62.63%              | 0.675 |
+| Logistic Regression (baseline)      | 55.92%              | 0.573 |
+| Logistic Regression (v2 + features) | 62.73%              | 0.673 |
 | Deep Neural Network                 | 63.11%              | 0.679 |
 | Deep Cross Network V2 (stacked)     | 62.89%              | 0.671 |
 | Deep Cross Network V2 (parallel)    | 62.78%              | 0.672 |
@@ -72,19 +72,19 @@ Engineered new and stronger predictive features.
 
 - **Initial Model (before engineered features):**  
   Initially trained a logistic regression model (from scratch) with gradient descent prior to implementing engineered features. Reduced validation binary cross entropy cost from 0.6963 to 0.6845 and achieved a validation accuracy of **55.31%**.  
-  - TPR: 0.5812  
-  - FPR: 0.476  
+  - TPR: 0.5677
+  - FPR: 0.450
   - TNR: 0.524  
-  - FNR: 0.419  
-  - AUC: 0.5753  
+  - FNR: 0.432
+  - AUC: 0.573  
 
 - **After Feature Engineering:**  
   Reduced validation binary cross entropy cost from 0.7166 to 0.6426 and achieved a validation accuracy of **62.63%**.
-  - TPR: 0.6758
-  - FPR: 0.429
-  - TNR: 0.571
-  - FNR: 0.324
-  - AUC: 0.675
+  - TPR: 0.6804
+  - FPR: 0.432
+  - TNR: 0.568
+  - FNR: 0.320
+  - AUC: 0.673
 
 
 ### <u>Neural Network</u>
